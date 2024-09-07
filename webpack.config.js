@@ -26,7 +26,7 @@ module.exports = {
     // eslint-disable-next-line new-cap
     new webpack.BannerPlugin({
       banner: `
-Source: https://nadchif.github.io/soccer-jersey/
+Source: https://metasoccer.github.io/soccer-jersey/
 The version of the package is: ${require('./package.json').version}
       `,
     }),

@@ -1,5 +1,5 @@
 {
-  "name": "soccer-jersey",
+  "name": "metasoccer-jersey",
   "version": "1.0.14",
   "description": "Generate soccer jerseys in SVG format",
   "main": "lib/index.js",
@@ -19,10 +19,10 @@
     "svg",
     "fpl"
   ],
-  "author": "nadchif (https://github.com/nadchif)",
+  "author": "metasoccer (https://github.com/metasoccer)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nadchif/soccer-jersey.git"
+    "url": "https://github.com/metasoccer/soccer-jersey.git"
   },
   "license": "MIT",
   "files": [

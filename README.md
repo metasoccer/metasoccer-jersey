@@ -12,7 +12,7 @@ npm i soccer-jersey
 ```
 
 ## Live Demos
-[View live demos & examples](https://nadchif.github.io/soccer-jersey/)
+[View live demos & examples](https://metasoccer.github.io/soccer-jersey/)
 
 ## Usage
 
