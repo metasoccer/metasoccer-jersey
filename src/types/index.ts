@@ -23,5 +23,6 @@ export interface DrawSoccerJerseyProps {
       | 'diagonal-left'
       | 'horizontal'
       | 'vertical');
+    sponsorBase64?: string;
     isBack?: boolean;
   }

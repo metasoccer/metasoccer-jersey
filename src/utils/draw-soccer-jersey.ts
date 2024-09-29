@@ -37,6 +37,7 @@ import {DrawSoccerJerseyProps} from '../types';
  * @param  {string} specs.shirtStyleDirection The style of the single band.
  *  Required when using the "single-band" shirt style. Supports
  * "diagonal-right", "diagonal-left","horizontal", "vertical"
+ * @param {string} specs.sponsorBase64 Optional. The URL of an image to be used as the sponsor.
  * @param {boolean} specs.isBack Set to true to draw the shirt from the
  *  back (different neck shape, no badges). Defaults to false.
  * @param {boolean} encodeToDataUri By default soccer jersey will return a Data URI
@@ -56,6 +57,7 @@ export default function drawSoccerJersey({
   shirtStyle,
   shirtStyleColor,
   shirtStyleDirection,
+  sponsorBase64 = undefined,
   isBack = false,
 }: DrawSoccerJerseyProps, encodeToDataUri: boolean = true): string {
   // Colors and Color Optimizations
@@ -183,24 +185,28 @@ export default function drawSoccerJersey({
           .to(1, 0),
   );
 
-  // text
-  const optimizedFontSize = (20 / shirtText.length) * 3;
-  const drawText = (elem: Svg) => elem.text(shirtText)
-      .fill(lightenDarkenColor((textColor ? textColor : '#fff'), -50))
-      .font({
-        family: 'Monospace',
-        size: optimizedFontSize > 30 ? 30 : optimizedFontSize,
-        style: 'bold',
-      })
-      .stroke({color: textOutlineColor? textOutlineColor: lightenDarkenColor((textColor ? textColor : '#fff'), 10), width: 0.5})
-      .center(50, 35);
-  if (textBackgroundColor) {
-    // eslint-disable-next-line new-cap
-    const draftShirtTextElem = drawText(SVG());
-    const dimens = draftShirtTextElem.bbox();
-    page.rect(dimens.width + 4, dimens.height + 4).fill(lightenDarkenColor(textBackgroundColor, 10)).center(50, 35);
+  // text or sponsor
+  if (sponsorBase64) {
+    page.image(sponsorBase64).size(42, 42).center(51, 42);
+  } else {
+    const optimizedFontSize = (20 / shirtText.length) * 3;
+    const drawText = (elem: Svg) => elem.text(shirtText)
+        .fill(lightenDarkenColor((textColor ? textColor : '#fff'), -50))
+        .font({
+          family: 'Monospace',
+          size: optimizedFontSize > 30 ? 30 : optimizedFontSize,
+          style: 'bold',
+        })
+        .stroke({color: textOutlineColor? textOutlineColor: lightenDarkenColor((textColor ? textColor : '#fff'), 10), width: 0.5})
+        .center(50, 42);
+    if (textBackgroundColor) {
+      // eslint-disable-next-line new-cap
+      const draftShirtTextElem = drawText(SVG());
+      const dimens = draftShirtTextElem.bbox();
+      page.rect(dimens.width + 4, dimens.height + 4).fill(lightenDarkenColor(textBackgroundColor, 10)).center(50, 42);
+    }
+    drawText(page);
   }
-  drawText(page);
 
   page.viewbox('0 0 102 100');
 
