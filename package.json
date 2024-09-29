@@ -1,6 +1,6 @@
 {
   "name": "metasoccer-jersey",
-  "version": "1.0.14",
+  "version": "1.0.20",
   "description": "Generate soccer jerseys in SVG format",
   "main": "lib/index.js",
   "scripts": {
@@ -53,7 +53,7 @@
     "storybook": "^7.0.17",
     "ts-loader": "^8.0.17",
     "typedoc": "^0.24.7",
-    "typescript": "4.6.4",
+    "typescript": "^5.6.2",
     "webpack": "^5.23.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^4.15.0"

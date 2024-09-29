@@ -1,21 +1,33 @@
 {
-    "compilerOptions": {
-      "sourceMap": false,
-      "checkJs": false,
-      "allowJs": true,   
-      "lib": ["es6", "es2015"], 
-      "skipLibCheck": true,
-      "target": "ES2015",
-      "module": "ES2020",
-      "strict": true,
-      "esModuleInterop": true,
-      "declaration": true,
-      "forceConsistentCasingInFileNames": true,   
-      "outDir": "./lib",
-      "moduleResolution": "node",
-      "jsx": "react-jsx"
-    },
-    "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-    "exclude": ["node_modules", "build", "dist", "src/index.umd.ts", "src/**/*.js", "src/**/*.jsx"]
-  }
-  
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "es6",
+      "es2015"
+    ],
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "outDir": "./lib",
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": false,
+    "target": "ES2015"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "src/index.umd.ts",
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ]
+}
