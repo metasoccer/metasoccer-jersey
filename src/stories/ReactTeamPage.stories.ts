@@ -313,7 +313,7 @@ export const WithSponsor: Story = {
   args: {
     shirtColor: '#fff',
     sleeveColor: '#000',
-    shirtStyle: 'plain',
+    shirtStyle: 'single-band',
     shirtStyleColor: '#fff',
     textColor: '#ffffff',
     /* eslint-disable max-len */

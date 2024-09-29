@@ -187,7 +187,7 @@ export default function drawSoccerJersey({
 
   // text or sponsor
   if (sponsorBase64) {
-    page.image(sponsorBase64).size(42, 42).center(51, 42);
+    page.image(sponsorBase64).size(42, 42).center(50.8, 45);
   } else {
     const optimizedFontSize = (20 / shirtText.length) * 3;
     const drawText = (elem: Svg) => elem.text(shirtText)
