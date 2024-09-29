@@ -1,5 +1,5 @@
-
 export interface DrawSoccerJerseyProps {
+    badgeBase64?: string;
     shirtText: string;
     textColor: string;
     textOutlineColor?: string;

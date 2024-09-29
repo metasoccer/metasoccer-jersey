@@ -16,6 +16,7 @@ import {DrawSoccerJerseyProps} from '../types';
 /**
  *
  * @param {object} specs Specifications of the soccer jersey.
+ * @param {string} specs.badgeBase64 Optional. The URL of an image to be used as the badge.
  * @param {string} specs.shirtText The text to be displayed on the shirt.
  *  Recommended 3 letter team initials
  * @param  {string} specs.textColor The color (HTML Color Code) for the
@@ -45,6 +46,7 @@ import {DrawSoccerJerseyProps} from '../types';
  *  on <img />
  */
 export default function drawSoccerJersey({
+  badgeBase64 = undefined,
   shirtText,
   textColor,
   textOutlineColor,
@@ -141,7 +143,7 @@ export default function drawSoccerJersey({
   page.path(pathMainBody).fill(shirtFill);
   page.path(pathMainBody).fill(
       page
-          .gradient('linear', function(add) {
+          .gradient('linear', function(add: any) {
             add.stop(0, '#000', 0.2);
             add.stop(0.44, '#ddd', 0.1);
             add.stop(1, '#fff', 0.1);
@@ -151,14 +153,18 @@ export default function drawSoccerJersey({
   );
   // badge
   if (!isBack) {
-    page.circle(8).fill(lightenDarkenColor(optimizedShirtColor, 60)).move(64, 18);
+    if (badgeBase64) {
+      page.image(badgeBase64).size(8, 8).move(64, 18);
+    } else {
+      page.circle(8).fill(lightenDarkenColor(optimizedShirtColor, 60)).move(64, 18);
+    }
     page.polygon('0,3 3,0 4,3').fill(lightenDarkenColor(optimizedShirtColor, -20)).move(30, 21);
   }
 
   // left sleeve
   page.path(pathLeftSleeve).fill(
       page
-          .gradient('linear', function(add) {
+          .gradient('linear', function(add: any) {
             add.stop(0.21, lightenDarkenColor(optimizedSleeveColor, -10));
             add.stop(1, optimizedSleeveColor);
           })
@@ -169,7 +175,7 @@ export default function drawSoccerJersey({
   // right sleeve
   page.path(pathRightSleeve).fill(
       page
-          .gradient('linear', function(add) {
+          .gradient('linear', function(add: any) {
             add.stop(0.21, lightenDarkenColor(optimizedSleeveColor, -10));
             add.stop(1, optimizedSleeveColor);
           })
