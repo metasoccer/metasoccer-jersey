@@ -7,7 +7,7 @@ const drawstripedThick = (
 ) =>
   page.pattern(20, 4, function(add) {
     add.rect(20, 4).fill(primaryColor);
-    add.rect(10, 4).fill(secondaryColor ? secondaryColor : '#eee');
+    add.rect(10, 4).fill(secondaryColor ? secondaryColor : '#eee').move(5.4, 0);
   });
 
 const drawstripedThin = (
@@ -17,7 +17,7 @@ const drawstripedThin = (
 ) =>
   page.pattern(8, 4, function(add) {
     add.rect(8, 4).fill(primaryColor);
-    add.rect(1, 4).fill(secondaryColor ? secondaryColor : '#eee');
+    add.rect(1, 4).fill(secondaryColor ? secondaryColor : '#eee').move(2, 0);
   });
 
 const drawStriped = (
@@ -34,7 +34,9 @@ const drawStriped = (
     default:
       return page.pattern(10, 4, function(add) {
         add.rect(10, 4).fill(primaryColor);
-        add.rect(5, 4).fill(secondaryColor ? secondaryColor : '#eee');
+        add.rect(5, 4)
+            .fill(secondaryColor ? secondaryColor : '#eee')
+            .move(3, 0);
       });
   }
 };
