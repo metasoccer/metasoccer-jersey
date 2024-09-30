@@ -1,6 +1,6 @@
 {
   "name": "metasoccer-jersey",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Generate soccer jerseys in SVG format",
   "main": "lib/index.js",
   "scripts": {
